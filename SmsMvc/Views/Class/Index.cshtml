@@ -1,0 +1,30 @@
+﻿@using SmsMvc.Models.Entity
+@model List<Tbl_Class>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MyLayout_.cshtml";
+}
+
+<h2>Class List</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Class Name</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+
+    @foreach(var class_ in Model)
+    {
+        <tr>
+            <td>@class_.ClassId</td>
+            <td>@class_.ClassName</td>
+            <td><a href="/Class/GetClass/@class_.ClassId" class="btn btn-warning">Update</a></td>
+            <td><a href="/Class/DeleteClass/@class_.ClassId" class="btn btn-danger">Delete</a></td>
+        </tr>
+    }
+
+</table>
+
+<a href="/Class/NewClass/" class="btn btn-primary">Add New Class</a>

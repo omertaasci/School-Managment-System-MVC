@@ -1,0 +1,34 @@
+﻿@model SmsMvc.Models.Entity.Tbl_Student
+@{
+    ViewBag.Title = "GetStudent";
+    Layout = "~/Views/Shared/MyLayout_.cshtml";
+}
+
+<h2>Update Student</h2>
+
+@using (Html.BeginForm("UpdateStudent", "Teacher", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.StudentId)
+        @Html.TextBoxFor(m => m.StudentId, new { @class = "form-control", @ReadOnly = "true"})
+
+        <br />
+
+        @Html.LabelFor(m => m.StudentFirstName)
+        @Html.TextBoxFor(m => m.StudentFirstName, new { @class = "form-control" })
+
+        <br />
+
+        @Html.LabelFor(m => m.StudentLastName)
+        @Html.TextBoxFor(m => m.StudentLastName, new { @class = "form-control" })
+
+        <br />
+
+        @Html.LabelFor(m => m.StudentClub)
+        @Html.DropDownListFor(m => m.Tbl_Club.ClubId, (List<SelectListItem>)ViewBag.studentClubDropDown_ViewBag, new { @class = "form-control" })
+    </div>
+
+    <div>
+        <button class="btn btn-primary">Save</button>
+    </div>
+}

@@ -1,0 +1,29 @@
+﻿@model SmsMvc.Models.Entity.Tbl_Club
+@{
+    ViewBag.Title = "NewClub";
+    Layout = "~/Views/Shared/MyLayout_.cshtml";
+}
+
+<h2>Add Club</h2>
+
+<form class="form-group" method="post">
+
+    <div>
+        <label>Id</label>
+        @Html.TextBoxFor(m => m.ClubId, new { @class = "form-control", @readonly = "true" })
+    </div>
+
+    <br />
+
+    <div>
+        <label>Club Name</label>
+        @Html.TextBoxFor(m => m.ClubName, new { @class = "form-control" })
+    </div>
+
+    <br />
+
+    <div>
+        <button class="btn btn-primary">Save</button>
+    </div>
+
+</form>

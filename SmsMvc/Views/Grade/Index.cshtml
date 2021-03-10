@@ -1,0 +1,43 @@
+﻿@using SmsMvc.Models.Entity
+@model List<Tbl_Grade>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MyLayout_.cshtml";
+}
+
+<h2>Grade List</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Class</th>
+        <th>Student</th>
+        <th>Exam 1</th>
+        <th>Exam 2</th>
+        <th>Exam 3</th>
+        <th>Project</th>
+        <th>Average</th>
+        <th>Status</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+
+    @foreach (var grades in Model)
+    {
+        <tr>
+            <td>@grades.GradeId</td>
+            <td>@grades.Tbl_Class.ClassName</td>
+            <td>@grades.Tbl_Student.StudentFirstName @grades.Tbl_Student.StudentLastName</td>
+            <td>@grades.Exam1</td>
+            <td>@grades.Exam2</td>
+            <td>@grades.Exam3</td>
+            <td>@grades.Project</td>
+            <td>@grades.Average</td>
+            <td>@grades.Status</td>
+            <td><a href="/Grade/GetGrade/@grades.GradeId" class="btn btn-warning">Update</a></td>
+            <td><a href="/Grade/DeleteGrade/@grades.GradeId" class="btn btn-danger">Delete</a></td>
+        </tr>
+    }
+    
+</table>
+<a href="/Grade/NewGrade" class="btn btn-primary">Add Grade</a>

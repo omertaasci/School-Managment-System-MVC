@@ -1,0 +1,50 @@
+﻿@model SmsMvc.Models.Entity.Tbl_Grade
+@{
+    ViewBag.Title = "GetGrade";
+    Layout = "~/Views/Shared/MyLayout_.cshtml";
+}
+
+<h2>Update Grade</h2>
+
+
+@using (Html.BeginForm("UpdateGrade", "Grade", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.LabelFor(m => m.GradeId)
+    @Html.TextBoxFor(m => m.GradeId, new { @class = "form-control", @ReadOnly = "true"})
+
+    <br />
+
+    @Html.LabelFor(m => m.Tbl_Student.StudentFirstName)
+    @Html.DropDownListFor(m => m.Tbl_Student.StudentId, (List<SelectListItem>)ViewBag.gradeStudent_ViewBag, new { @class = "form-control" })
+
+    <br />
+
+    @Html.LabelFor(m => m.Tbl_Class.ClassName)
+    @Html.DropDownListFor(m => m.Tbl_Class.ClassId, (List<SelectListItem>)ViewBag.gradeClass_ViewBag, new { @class = "form-control" })
+
+    <br />
+
+    @Html.LabelFor(m => m.Exam1)
+    @Html.TextBoxFor(m => m.Exam1, new { @class = "form-control" })
+
+    <br />
+
+    @Html.LabelFor(m => m.Exam2)
+    @Html.TextBoxFor(m => m.Exam2, new { @class = "form-control" })
+
+    <br />
+
+    @Html.LabelFor(m => m.Exam3)
+    @Html.TextBoxFor(m => m.Exam3, new { @class = "form-control" })
+
+    <br />
+
+    @Html.LabelFor(m => m.Project)
+    @Html.TextBoxFor(m => m.Project, new { @class = "form-control" })
+</div>
+
+    <div>
+        <button class="btn btn-primary">Save</button>
+    </div>
+}

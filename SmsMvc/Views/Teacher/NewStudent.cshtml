@@ -1,0 +1,34 @@
+﻿@model  SmsMvc.Models.Entity.Tbl_Student
+@{
+    ViewBag.Title = "NewStudent";
+    Layout = "~/Views/Shared/MyLayout_.cshtml";
+}
+
+<h2>New Student</h2>
+
+<form class="form-group" method="post">
+    <div>
+        <label>Student Name</label>
+        @Html.TextBoxFor(m => m.StudentFirstName, new { @class = "form-control" })
+    </div>
+
+    <br />
+
+    <div>
+        <label>Student Surname</label>
+        @Html.TextBoxFor(m => m.StudentLastName, new { @class = "form-control" })
+    </div>
+
+    <br />
+
+    <div>
+        <label>Student Club</label>
+        @Html.DropDownListFor(m => m.Tbl_Club.ClubId, (List<SelectListItem>)ViewBag.studentClubDropDown_ViewBag, new { @class = "form-control" })
+    </div>
+
+    <br />
+
+    <div>
+        <button class="btn btn-primary">Save</button>
+    </div>
+</form>

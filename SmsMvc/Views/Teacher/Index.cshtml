@@ -1,0 +1,35 @@
+﻿@using SmsMvc.Models.Entity
+@model List<Tbl_Student>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MyLayout_.cshtml";
+}
+
+<h2>Student List</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Student Id</th>
+        <th>Student Name</th>
+        <th>Student Surname</th>
+        <th>Student Club</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+
+    @foreach (var student in Model)
+    {
+        <tr>
+            <td>@student.StudentId</td>
+            <td>@student.StudentFirstName</td>
+            <td>@student.StudentLastName</td>
+            <td>@student.Tbl_Club.ClubName</td>
+            <td><a href="/Teacher/GetStudent/@student.StudentId" class="btn btn-warning">Update</a></td>
+            <td><a href="/Teacher/DeleteStudent/@student.StudentId" class="btn btn-danger">Delete</a></td>
+
+        </tr>
+    }
+
+</table>
+
+<a href="/Teacher/NewStudent" class="btn btn-primary">Add New Student</a>
